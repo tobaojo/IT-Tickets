@@ -5,7 +5,7 @@ const Navbar = () => {
         <a href="http://" className={styles.title}>IT Tickets</a>
         <ul>
             <li>
-                <a href="http://">features</a>
+                <a href="http://">dashboard</a>
             </li>
             <li>
                 <a href="http://">pricing</a>

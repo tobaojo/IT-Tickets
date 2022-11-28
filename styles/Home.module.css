@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  padding: 0;
 }
 
 .main {
@@ -28,7 +28,8 @@
   flex-grow: 1;
 }
 
-.title a {
+.title a,
+.description a {
   color: #0070f3;
   text-decoration: none;
 }
@@ -43,17 +44,18 @@
   margin: 0;
   line-height: 1.15;
   font-size: 3rem;
+  color: white;
 }
 
 .title,
 .description {
-  text-align: center;
+  text-align: left;
 }
 
 .description {
-  margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+  color: white
 }
 
 .code {
@@ -149,6 +151,59 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
+}
+.overlay {
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  
+}
+
+.signUp {
+  display: flex;
+  margin: 20px;
+  padding: 20px;
+  gap: 8rem;
+}
+
+.formCard {
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 15px #888888
+}
+
+.formControl {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.formControl label {
+  display: block;
+}
+
+
+.formControl input{
+  border: solid 1px lightgrey;
+  border-radius: 3px;
+  width: 300px;
+  padding: 10px;
+  display: block;
+}
+
+.formControl input:focus{
+  outline: 0;
+  border-color: darkgrey;
+}
+
+.formControl small{
+  color: #e74c3c;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
 }
 
 @media (max-width: 600px) {
