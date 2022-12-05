@@ -1,0 +1,39 @@
+
+  .formCard {
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 4px;
+    box-shadow: 4px 4px 15px #888888
+  }
+  
+  .formControl {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    position: relative;
+  }
+  
+  .formControl label {
+    display: block;
+  }
+  
+  
+  .formControl input{
+    border: solid 1px lightgrey;
+    border-radius: 3px;
+    width: 300px;
+    padding: 10px;
+    display: block;
+  }
+  
+  .formControl input:focus{
+    outline: 0;
+    border-color: darkgrey;
+  }
+  
+  .formControl small{
+    color: #e74c3c;
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+  }
+  

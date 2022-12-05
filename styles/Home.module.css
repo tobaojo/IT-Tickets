@@ -72,19 +72,17 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
 }
 
 .card {
   margin: 1rem;
   padding: 1.5rem;
-  text-align: left;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  max-width: 500px;
 }
 
 .card:hover,
@@ -96,7 +94,6 @@
 
 .card h2 {
   margin: 0 0 1rem 0;
-  font-size: 1.5rem;
 }
 
 .card p {
@@ -110,39 +107,11 @@
   margin-left: 0.5rem;
 }
 
-.nav {
-  background-color: #333;
-  color: white;
+.signUp {
   display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-  align-items: center;
-  gap: 2rem;
-}
-
-.siteTitle {
-  size: 2rem;
-}
-
-.nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.nav li .active {
-  background-color: #555;
-}
-
-.nav li :hover {
-  background-color: #777;
+  margin: 20px;
+  padding: 20px;
+  gap: 8rem;
 }
 
 .backgroundImg {
@@ -161,50 +130,6 @@
   
 }
 
-.signUp {
-  display: flex;
-  margin: 20px;
-  padding: 20px;
-  gap: 8rem;
-}
-
-.formCard {
-  background-color: white;
-  padding: 20px 40px;
-  border-radius: 4px;
-  box-shadow: 4px 4px 15px #888888
-}
-
-.formControl {
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  position: relative;
-}
-
-.formControl label {
-  display: block;
-}
-
-
-.formControl input{
-  border: solid 1px lightgrey;
-  border-radius: 3px;
-  width: 300px;
-  padding: 10px;
-  display: block;
-}
-
-.formControl input:focus{
-  outline: 0;
-  border-color: darkgrey;
-}
-
-.formControl small{
-  color: #e74c3c;
-  position: absolute;
-  left: 0;
-  visibility: hidden;
-}
 
 @media (max-width: 600px) {
   .grid {

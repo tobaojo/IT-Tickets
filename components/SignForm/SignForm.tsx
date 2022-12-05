@@ -1,4 +1,4 @@
-import styles from '../../styles/Home.module.css'
+import styles from './SignForm.module.css'
 
 const SignForm = () => {
     return (

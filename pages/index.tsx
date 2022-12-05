@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Navbar from './components/Navbar'
-import SignForm from './components/SignForm'
+import Navbar from '../components/Navbar/Navbar'
+import SignForm from '../components/SignForm/SignForm'
 
 export default function Home() {
   return (
@@ -32,9 +32,6 @@ export default function Home() {
         </main>
         </div>
         </div>
-      
-     
-
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
