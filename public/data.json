@@ -3,8 +3,8 @@
         {
             "Id": 1,
             "Client": "Ash",
-            "Title": "fsdfjdks",
-            "Agent": "Will"
+            "Title": "Test ticket",
+            "Agent": "Toba"
         },
         {
             "Id": 2,
@@ -16,13 +16,45 @@
             "Id": 3,
             "Client": "Alan",
             "Title": "Need Help",
-            "Agent": "Will"
+            "Agent": "Toba"
         },
         {
             "Id": 4,
             "Client": "Shanice",
             "Title": "not working",
             "Agent": "Will"
+        }
+    ],
+    "users":[
+        {
+            "id":10,
+            "name": "Michael",
+            "userType": "user",
+            "status": "online"
+        },
+        {
+            "id":11,
+            "name": "Regina",
+            "userType": "Admin",
+            "status": "away"
+        },
+        {
+            "id":12,
+            "name": "Caleb",
+            "userType": "user",
+            "status": "online"
+        }
+        ,{
+            "id":13,
+            "name": "Walter",
+            "userType": "user",
+            "status": "offline"
+        }
+        ,{
+            "id":14,
+            "name": "Emma",
+            "userType": "user",
+            "status": "offline"
         }
     ]
 }

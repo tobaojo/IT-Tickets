@@ -1,0 +1,49 @@
+.activeUsers {
+    color: darkgray;
+    border-bottom: 1px solid black;
+}
+
+
+.users li {
+    color: black;
+    list-style: none;
+    display: block;
+    max-width: 300px;
+    padding: 5px 0px;
+    margin: 5px 0px;
+}
+
+.users p {
+line-height: 0%;
+}
+
+.users p:hover {
+    text-decoration: underline;
+}
+
+.users img {
+    border-radius: 50%;
+    position: relative;
+}
+.activeUserItem {
+    display: flex;
+    gap: 10px;
+}
+
+.users .badge {
+    position: absolute;
+    padding: 0px 5px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: rgb(110, 236, 61);
+    color: rgb(110, 236, 61);;
+}
+
+
+.userInfo {
+    align-self: center;
+}
+
+.userInfo small{
+    color: darkgray;
+}

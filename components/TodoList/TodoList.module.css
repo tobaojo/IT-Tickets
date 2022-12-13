@@ -1,4 +1,49 @@
 .heading {
-    font-size: 2.5rem;
+    font-size: 1rem;
 }
 
+.todoInput {
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin: 2px;
+    border: 2px solid lightgray;
+}
+
+.addBtn {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 24px;
+    margin: 5px;
+    transition-duration: 0.4s;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+.addBtn:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.todoItem {
+    list-style: none;
+    color: black;
+    border-bottom:0.5px solid lightgray;
+    margin-right: 20px;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoItem .trashcan {
+    color: red;
+    display: none;
+
+}
+
+.todoItem:hover .trashcan {
+    display: flex;
+   
+   
+}

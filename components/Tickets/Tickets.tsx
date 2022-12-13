@@ -1,7 +1,6 @@
 import 'react-data-grid/lib/styles.css';
-import DataGrid, { SortColumn } from 'react-data-grid'
-import { useCallback, useEffect, useMemo, useState } from 'react';
-
+import DataGrid, { Column, SortColumn } from 'react-data-grid'
+import { useEffect, useMemo, useState } from 'react';
 type Row = {
     Id: string
     name: string
@@ -18,40 +17,40 @@ type Columns = {
     resizable: boolean
 }
 
-const priorities = ['Critical','Low','Medium', 'High']
-
-const createColumns = () => [
-    {key: 'Id', name: 'ID', sortable: true, resizeable: true},
-    {key: 'Client', name: 'Client',  sortable: true, resizeable: true},
-    {key: 'Title', name: 'Title',  sortable: true, resizeable: true},
-    {key: 'Priority', name: 'Priority',  sortable: true, resizeable: true, 
-    editor: (p: { row: { Priority: string | number | readonly string[] | undefined; }; onRowChange: (arg0: any, arg1: boolean) => void; }) => (<select
-        autoFocus
-        value={p.row.Priority}
-        onChange={(e) => {p.onRowChange({...p.row, Priority: e.target.value }, true)}}
-        >
-        {priorities.map((priority)=>{
-            return <option key={priority}>{priority}</option>
-        })}
-    </select>),
-    editorOptions: {
-        editOnClick: true
-    }
-},
-    {key: 'Agent', name: 'Agent',  sortable: true, resizeable: true}
-]
-
+type Comparator = (a: Row, b: Row) => number;
 
 const Tickets = () => {
-    const [rows, setRows] = useState([])
-    const [columns, setColumns] = useState(createColumns)
+    const [rows, setRows] = useState<Row[]>([])
+    const [selectedOption, setSelectedOption]  = useState('')
     const [sortColumns, setSortColumns] = useState<readonly SortColumn[]>([])
 
+    const priorities = ['Critical','Low','Medium', 'High']
+
+    const columns: readonly Column<Row, unknown>[] = [
+        {key: 'Id', name: 'ID', sortable: true, resizable: true},
+        {key: 'Client', name: 'Client',  sortable: true, resizable: true},
+        {key: 'Title', name: 'Title',  sortable: true, resizable: true},
+        {key: 'Priority', name: 'Priority',  sortable: true, resizable: true, 
+        editor: (p) => (
+        <select
+           onChange={(e)=> p.onRowChange({...p.row, Priority: e.target.value}, true)}
+           value={p.row.Priority}
+            >
+            {priorities.map((priority)=>{
+                return <option key={priority}>{priority}</option>
+            })}
+        </select>),
+        editorOptions: {
+            editOnClick: true
+        }
+    },
+        {key: 'Agent', name: 'Agent',  sortable: true, resizable: true}
+    ]
 
     const rowKeyGetter = (row: Row) => {
         return row.Id
     }
-    type Comparator = (a: Row, b: Row) => number;
+    
     function getComparator(sortColumn: string): Comparator {
         switch(sortColumn){
             case 'Id':
@@ -67,6 +66,14 @@ const Tickets = () => {
         }
     }
 
+    const getData = async() => {
+        const response = await fetch('data.json')
+        const ticketData = await response.json()
+        setRows(ticketData.data)
+    }
+
+    useEffect(() => {getData()}, [])
+
     const sortedRows = useMemo((): readonly Row[] => {
         if (sortColumns.length === 0) return rows;
         return [...rows].sort((a, b) => {
@@ -81,32 +88,25 @@ const Tickets = () => {
         });
       }, [rows, sortColumns]);
 
-    const getData = () => {
-        fetch('data.json',{
-            headers: {
-                'Content-Type': 'aplication/json',
-                'Accept': 'application/json'
-            }
-        })
-        .then((res) => {
-            return res.json()
-        }).then((myJson) => {
-            setRows(myJson.data)
-        })
-    }
-
-    useEffect(() => {
-      getData()
-    }, [])
-
-
     return (
         <>
         <div><h3>Unresolved Tickets</h3></div>
-        <DataGrid columns={columns} rows={sortedRows} sortColumns={sortColumns}
-      onSortColumnsChange={setSortColumns} rowKeyGetter={rowKeyGetter} />
+        <DataGrid columns={columns}
+         rows={sortedRows} 
+         sortColumns={sortColumns}
+        onSortColumnsChange={setSortColumns} 
+        rowKeyGetter={rowKeyGetter} 
+        onRowsChange={(rows, data)=>{
+            console.log(rows, data)
+            setRows(rows)
+
+        }}
+        onSelectedRowsChange={(selectedRows)=>{
+            console.log(selectedRows)
+        }
+        }
+      />
         </>
-          
        
     )
 }
